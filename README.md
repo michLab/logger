@@ -12,14 +12,14 @@ In this example a logger object is created, where:
 * 'logging.DEBUG' is the level set to the file output
 * 'logging.INFO' is the level set to the console output
 
-'''
+```sh
 logger = Logger(__name__, 'my_cute.log', logging.DEBUG, logging.INFO)
 logger.debug('A debug message')
 logger.info('An info message')
 logger.warning('A warning message')
 logger.error('An error message')
 logger.critical('A critical message')
-'''
+```
 
 ## License
 The contents of this repository are covered under the [MIT License](./LICENSE.txt)
