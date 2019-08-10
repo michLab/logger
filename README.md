@@ -8,11 +8,11 @@ formatter. In default formatter the time is unix time (seconds.microseconds).
 ## How to use
 
 In this example a logger object is created, where:
-* 'my_cute.log' is the name of the output file
-* 'logging.DEBUG' is the level set to the file output
-* 'logging.INFO' is the level set to the console output
+* `my_cute.log` is the name of the output file
+* `logging.DEBUG` is the level set to the file output
+* `logging.INFO` is the level set to the console output
 
-```sh
+```python
 logger = Logger(__name__, 'my_cute.log', logging.DEBUG, logging.INFO)
 logger.debug('A debug message')
 logger.info('An info message')
