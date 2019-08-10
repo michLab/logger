@@ -23,8 +23,11 @@ logger.critical('A critical message')
 
 **Console:**
 > 1565436200.911726 __main__     INFO     An info message
+> 
 > 1565436200.913647 __main__     WARNING  A warning message
+> 
 > 1565436200.914586 __main__     ERROR    An error message
+> 
 > 1565436200.915454 __main__     CRITICAL A critical message
 
 
