@@ -55,11 +55,5 @@ class Logger:
         self.logger.critical(msg)
 
 
-logger = Logger(__name__, 'my_cute.log', logging.DEBUG, logging.INFO)
-logger.debug('A debug message')
-logger.info('An info message')
-logger.warning('A warning message')
-logger.error('An error message')
-logger.critical('A critical message')
 
 
