@@ -53,7 +53,3 @@ class Logger:
 
     def critical(self, msg):
         self.logger.critical(msg)
-
-
-
-
