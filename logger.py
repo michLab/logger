@@ -2,6 +2,8 @@ import logging
 import sys
 import time
 
+LOGGER_VERSION = 1.0
+
 class Logger:
     def __init__(self, logger_name='__name__', file_name=' ',
                  file_level=-1, console_level=-1,
