@@ -3,22 +3,26 @@ import sys
 import time
 
 class Logger:
-    def __init__(self, logger_name='__name__', file_name='app.log',
-                 file_level=logging.DEBUG, console_level=logging.INFO,
+    def __init__(self, logger_name='__name__', file_name=' ',
+                 file_level=-1, console_level=-1,
                  formatter='%(created).6f %(name)-12s %(levelname)-8s %(message)s'):
         self.logger = logging.getLogger(logger_name)
         self.logger.setLevel(logging.DEBUG)
         
-        self.console_formatter = logging.Formatter(formatter)
-        self.console_level = console_level
-        self.init_console_handler()
-        self.logger.addHandler(self.console_handler)
+        if console_level in {logging.DEBUG, logging.INFO, logging.WARNING,
+                logging.ERROR, logging.CRITICAL}:
+            self.console_formatter = logging.Formatter(formatter)
+            self.console_level = console_level
+            self.init_console_handler()
+            self.logger.addHandler(self.console_handler)
 
-        self.file_name = file_name
-        self.file_level = file_level
-        self.file_formatter = logging.Formatter(formatter)
-        self.init_file_handler()
-        self.logger.addHandler(self.file_handler)
+        if file_name is not ' ' and file_level in {logging.DEBUG,
+                logging.INFO, logging.WARNING, logging.ERROR, logging.CRITICAL}:
+            self.file_name = file_name
+            self.file_level = file_level
+            self.file_formatter = logging.Formatter(formatter)
+            self.init_file_handler()
+            self.logger.addHandler(self.file_handler)
 
         self.logger.propagate = False
             
