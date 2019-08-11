@@ -2,7 +2,7 @@ import logging
 import sys
 import time
 
-LOGGER_VERSION = 1.0
+LOGGER_VERSION = 1.1
 
 class Logger:
     def __init__(self, logger_name='__name__', file_name=' ',
@@ -41,21 +41,21 @@ class Logger:
         self.file_handler.setLevel(self.file_level)
 
 
-    def debug(self, msg):
-        self.logger.debug(msg)
+    def debug(self, msg, *args, **kwargs):
+        self.logger.debug(msg, *args, **kwargs)
 
 
-    def info(self, msg):
-        self.logger.info(msg)
+    def info(self, msg, *args, **kwargs):
+        self.logger.info(msg, *args, **kwargs)
     
 
-    def warning(self, msg):
-        self.logger.warning(msg)
+    def warning(self, msg, *args, **kwargs):
+        self.logger.warning(msg, *args, **kwargs)
         
 
-    def error(self, msg):
-        self.logger.error(msg)
+    def error(self, msg, *args, **kwargs):
+        self.logger.error(msg, *args, **kwargs)
 
 
-    def critical(self, msg):
-        self.logger.critical(msg)
+    def critical(self, msg, *args, **kwargs):
+        self.logger.critical(msg, *args, **kwargs)
