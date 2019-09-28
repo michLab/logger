@@ -4,14 +4,17 @@ __author__ = "Michal Labowski"
 __version__ = "0.1.0.2"
 __mantainer__ = "Michal Labowski"
 __status__ = "Prototype"
+__date__ = "28 September 2019"
 
 import sys
 import time
 import logging
 
 class Logger:
-    """A Logger class definition - it allows to simultanously write data to log file
-    and the console"""
+    """
+    A Logger class definition - it allows to simultanously write data to log file
+    and the console
+    """
 
     def __init__(self, logger_name='__name__', file_name=' ',
                  file_level=-1, console_level=-1,
@@ -19,11 +22,11 @@ class Logger:
         """
         Initializes the Logger class instance
 
-        :param logger_name: str name of the logger
-        :param file_name: str name of the log file
-        :param file_level: the severity level of messages output to log file
-        :param console_level: the severity level of messages output to console
-        :param formatter: the format of the log message
+        :param logger_name: Name of the logger
+        :param file_name: Name of the log file
+        :param file_level: The severity level of messages output to log file
+        :param console_level: The severity level of messages output to console
+        :param formatter: The format of the log message
         """
         self.logger = logging.getLogger(logger_name)
         # The severity level of the root logger
@@ -53,37 +56,53 @@ class Logger:
         self.logger.propagate = False
 
     def init_console_handler(self):
-        """ Initialize the console output"""
+        """
+        Initialize the console output
+        """
         self.console_handler = logging.StreamHandler(sys.stdout)
         self.console_handler.setFormatter(self.console_formatter)
         self.console_handler.setLevel(self.console_level)
     
     def init_file_handler(self):
-        """Initialize the file output"""
+        """
+        Initialize the file output
+        """
         self.file_handler = logging.FileHandler(self.file_name)
         self.file_handler.setFormatter(self.file_formatter)
         self.file_handler.setLevel(self.file_level)
 
     def debug(self, msg, *args, **kwargs):
-        """Set debug message"""
+        """
+        Set debug message
+        """
         self.logger.debug(msg, *args, **kwargs)
 
     def info(self, msg, *args, **kwargs):
-        """Set info message"""
+        """
+        Set info message
+        """
         self.logger.info(msg, *args, **kwargs)
     
     def warning(self, msg, *args, **kwargs):
-        """Set warning message"""
+        """
+        Set warning message
+        """
         self.logger.warning(msg, *args, **kwargs)
         
     def error(self, msg, *args, **kwargs):
-        """Set error message"""
+        """
+        Set error message
+        """
         self.logger.error(msg, *args, **kwargs)
 
     def critical(self, msg, *args, **kwargs):
-        """Set critical message"""
+        """
+        Set critical message
+        """
         self.logger.critical(msg, *args, **kwargs)
 
     def exception(self, msg, *args, **kwargs):
-        """Set exception message"""
+        """
+        Set exception message
+        """
         self.logger.exception(msg, *args, **kwargs)
