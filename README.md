@@ -102,6 +102,19 @@ while True:
     sleep(10)
 ```
 
+**Output from log file:**
+> 1569678996.800474 __main__     INFO       [Producer A]: This it a test info message
+> 
+> 1569679112.583759 __main__     INFO       [Producer A]: This is a test info message
+> 
+> 1569679112.585577 __main__     INFO       [Producer A]: This is a test info message
+> 
+> 1569679112.584014 __main__     INFO       [Producer B]: This is a test info message
+> 
+> 1569679112.587278 __main__     INFO       [Producer A]: This is a test info message
+> 
+
+
 ## License
 The contents of this repository are covered under the [MIT License](./LICENSE.txt)
 
