@@ -7,40 +7,68 @@ formatter. In default formatter the time is unix time (seconds.microseconds).
 
 ## How to use
 
-In this example a logger object is created, where:
-* `my_cute.log` is the name of the output file
-* `logging.DEBUG` is the level set to the file output
-* `logging.INFO` is the level set to the console output
-
+In this example a logger object is created:
 ```python
-logger = Logger(__name__, 'my_cute.log', logging.DEBUG, logging.INFO)
-logger.debug('A debug message')
-logger.info('An info message')
-logger.warning('A warning message')
-logger.error('An error message')
-logger.critical('A critical message')
+from logger import Logger
+import logging
+
+my_logger = Logger(logger_name=__name__, file_name="./test.log",
+                   console_level=logging.INFO, file_level=logging.DEBUG)
+message_number = 1
+my_logger.info('This it a test info message with num %d', message_number)
+my_logger.debug('This it a test debug message %s', str(message_number))
+my_logger.warning('This it a test warning message')
+my_logger.error('This it a test error message')
+my_logger.critical('This it a test critical message')
+
+a = 5
+b = 0
+try:
+    c = a/b
+except Exception as e:
+    my_logger.exception("Exception occured")
 ```
 
 **Console:**
-> 1565436200.911726 __main__     INFO     An info message
+> 1569666439.207746 __main__     INFO       This it a test info message with num 1
 > 
-> 1565436200.913647 __main__     WARNING  A warning message
+> 1569666439.226380 __main__     WARNING    This it a test warning message
 > 
-> 1565436200.914586 __main__     ERROR    An error message
+> 1569666439.226536 __main__     ERROR      This it a test error message
 > 
-> 1565436200.915454 __main__     CRITICAL A critical message
+> 1569666439.226661 __main__     CRITICAL   This it a test critical message
+> 
+> 1569666439.226796 __main__     ERROR      Exception occured
+> 
+> Traceback (most recent call last):
+> 
+>  File "test_logger.py", line 16, in <module>
+> 
+>     c = a/b
+> 
+> ZeroDivisionError: integer division or modulo by zero
 
 
 **File:**
-> 1565436200.898947 __main__     DEBUG    A debug message
+> 1569666439.207746 __main__     INFO       This it a test info message with num 1
+> 
+> 1569666439.226125 __main__     DEBUG      This it a test debug message 1
+> 
+> 1569666439.226380 __main__     WARNING    This it a test warning message
+> 
+> 1569666439.226536 __main__     ERROR      This it a test error message
+> 
+> 1569666439.226661 __main__     CRITICAL   This it a test critical message
+> 
+> 1569666439.226796 __main__     ERROR      Exception occured
 >
-> 1565436200.911726 __main__     INFO     An info message
->
-> 1565436200.913647 __main__     WARNING  A warning message
->
-> 1565436200.914586 __main__     ERROR    An error message
->
-> 1565436200.915454 __main__     CRITICAL A critical message
+> Traceback (most recent call last):
+> 
+>  File "test_logger.py", line 16, in <module>
+> 
+>     c = a/b
+> 
+> ZeroDivisionError: integer division or modulo by zero
 
 ## License
 The contents of this repository are covered under the [MIT License](./LICENSE.txt)
