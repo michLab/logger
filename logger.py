@@ -1,8 +1,13 @@
-import logging
+"""logger.py: The Logger class definition file"""
+
+__author__ = "Michal Labowski"
+__version__ = "0.1.0.2"
+__mantainer__ = "Michal Labowski"
+__status__ = "Prototype"
+
 import sys
 import time
-
-LOGGER_VERSION = 1.2
+import logging
 
 class Logger:
     """A Logger class definition - it allows to simultanously write data to log file
@@ -11,7 +16,15 @@ class Logger:
     def __init__(self, logger_name='__name__', file_name=' ',
                  file_level=-1, console_level=-1,
                  formatter='%(created).6f %(name)-12s %(levelname)-10s %(message)s'):
-        """Initialize the Logger class instance"""
+        """
+        Initializes the Logger class instance
+
+        :param logger_name: str name of the logger
+        :param file_name: str name of the log file
+        :param file_level: the severity level of messages output to log file
+        :param console_level: the severity level of messages output to console
+        :param formatter: the format of the log message
+        """
         self.logger = logging.getLogger(logger_name)
         # The severity level of the root logger
         # All events equal and above this level will be logged
