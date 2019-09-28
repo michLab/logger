@@ -10,6 +10,15 @@ import sys
 import time
 import logging
 
+CRITICAL = logging.CRITICAL
+FATAL = logging.critical
+ERROR = logging.ERROR
+WARNING = logging.WARNING
+WARN = logging.WARNING
+INFO = logging.INFO
+DEBUG = logging.DEBUG
+NOTSET = logging.NOTSET
+
 class Logger:
     """
     A Logger class definition - it allows to simultanously write data to log file

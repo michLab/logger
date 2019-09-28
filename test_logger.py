@@ -1,8 +1,7 @@
-from logger import Logger
-import logging
+import logger
 
-my_logger = Logger(logger_name=__name__, file_name="./test.log",
-                   console_level=logging.INFO, file_level=logging.DEBUG)
+my_logger = logger.Logger(logger_name=__name__, file_name="./test.log",
+                          console_level=logger.INFO, file_level=logger.DEBUG)
 message_number = 1
 my_logger.info('This it a test info message with num %d', message_number)
 my_logger.debug('This it a test debug message %s', str(message_number))
